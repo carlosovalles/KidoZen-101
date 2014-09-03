@@ -58,7 +58,7 @@ Connection successful from delegate:
 
 In this method we will create the TextFields needed for the authentication View with the respective Login and Password.
 
- - (void)conectionSuccessfulWithResponse:(KZResponse *)response{
+- (void)conectionSuccessfulWithResponse:(KZResponse *)response{
     
     self.kzResponse = response;
     
@@ -81,6 +81,7 @@ In this method we will create the TextFields needed for the authentication View 
     [button setFrame:CGRectMake(0.0, 110.0, self.view.bounds.size.width, 40.0)];
     [self.view addSubview:button];
 }
+
  
  
  
