@@ -23,7 +23,7 @@ In the interface we register the delegate method from the ConnectionManager Clas
 
 KZBlankSampleViewController.m
  
- @interface KZBlankSampleViewController () <KZConnectionManagerDelegate,UITextFieldDelegate>
+  @interface KZBlankSampleViewController () <KZConnectionManagerDelegate,UITextFieldDelegate>
  
  
 Authentication 
