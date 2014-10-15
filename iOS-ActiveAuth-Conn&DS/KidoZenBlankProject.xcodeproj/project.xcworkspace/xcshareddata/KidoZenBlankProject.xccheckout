@@ -12,20 +12,24 @@
 	<dict>
 		<key>CDED5DD2-71E8-4D7A-AFE6-88F4C185BBD2</key>
 		<string>https://github.com/kidozen/kido-iOS-blankProject.git</string>
+		<key>DCE66194C3CFC3285E07139CA4DAC2117B956476</key>
+		<string>https://github.com/carlosovalles/KidoZen-101.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>KidoZenBlankProject.xcodeproj/project.xcworkspace</string>
+	<string>iOS-ActiveAuth-Conn&amp;DS/KidoZenBlankProject.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>CDED5DD2-71E8-4D7A-AFE6-88F4C185BBD2</key>
-		<string>../..</string>
+		<string>../../../../kido-iOS-blankProject</string>
+		<key>DCE66194C3CFC3285E07139CA4DAC2117B956476</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/kidozen/kido-iOS-blankProject.git</string>
+	<string>https://github.com/carlosovalles/KidoZen-101.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>CDED5DD2-71E8-4D7A-AFE6-88F4C185BBD2</string>
+	<string>DCE66194C3CFC3285E07139CA4DAC2117B956476</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +39,14 @@
 			<string>CDED5DD2-71E8-4D7A-AFE6-88F4C185BBD2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>kido-iOS-blankProject</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DCE66194C3CFC3285E07139CA4DAC2117B956476</string>
+			<key>IDESourceControlWCCName</key>
+			<string>KidoZen-101</string>
 		</dict>
 	</array>
 </dict>

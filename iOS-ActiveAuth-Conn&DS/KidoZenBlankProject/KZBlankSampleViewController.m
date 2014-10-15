@@ -13,7 +13,8 @@
 #define KidoZenAppCenterUrl @"https://public.kidocloud.com"
 #define KidoZenAppName @"tasks"
 #define KidoZenProvider @"Kidozen"
-#define KidoZenUser @"public@kidozen.com"
+#define KidoZenSecretSDK_Key @"vI672FJGweb0MG457fkNA8SDzxS08kOTOdQcHVon6+w="
+
 
 @interface KZBlankSampleViewController () <KZConnectionManagerDelegate,UITextFieldDelegate>
 
@@ -31,7 +32,9 @@
 {
     [super viewDidLoad];
     
-    _kidoZenConector = [[KZConnectionManager alloc]initWithAppCenterUrl:KidoZenAppCenterUrl andAppName:KidoZenAppName];
+    _kidoZenConector = [[KZConnectionManager alloc]initWithAppCenterUrl:KidoZenAppCenterUrl
+                                                                AppName:KidoZenAppName
+                                                                SDK_Key:KidoZenSecretSDK_Key];
     _kidoZenConector.delegate = self;
     
     _helloKidoLabel = [[UITextView alloc] initWithFrame:CGRectMake(20, 160, self.view.bounds.size.width-20, 300)];
@@ -48,7 +51,7 @@
     
     _userName = [[UITextField alloc]initWithFrame:CGRectMake(40, 30, 200, 38)];
 //    _userName.text = @"public@kidozen.com";
-    _userName.placeholder =  @"user@email.com";
+    _userName.placeholder =  @"user@email.com";	
     _userName.delegate = self;
     [self.view addSubview:_userName];
     
@@ -80,14 +83,14 @@
      [_kzResponse.application authenticateUser:_userName.text
                                   withProvider:KidoZenProvider
                                    andPassword:_pass.text
-                                    completion:^(id c) {
-        if (c) {
+                                    completion:^(id authenticationToken) {
+        if (authenticationToken) {
             
-            NSString *user= [c description];
+            NSString *user= [authenticationToken description];
                if(![user hasPrefix:@"Error"])
                {
-                    [self queryConnector];
-//                    [self queryDS];
+//                    [self queryConnector];
+                    [self queryDataSource];
                }
                else
                {
@@ -103,8 +106,11 @@
 -(void)queryConnector{
     
     NSString *jsonString = @"{\"sql\":\"select * from products\"}";
+    
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
     NSError *error = nil;
+    
     NSDictionary *myDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
     
     id myService = [_kzResponse.application LOBServiceWithName:@"kido-mysql"];
@@ -117,12 +123,20 @@
 }
 
 
--(void)queryDS{
+-(void)queryDataSource{
 
     KZDatasource *ds = [_kzResponse.application DataSourceWithName:@"getAllProducts"];
+    
     [ds Query:^(KZResponse *r) {
-       [_helloKidoLabel setText:[NSString stringWithFormat:@"Response from DataSource:\n\n%@",r.response]];
+        NSLog(@"Response: %@",r.response);
+        [_helloKidoLabel setText:[NSString stringWithFormat:@"Response from DataSource:\n\n%@",r.response]];
     }];
+    
+    
+//    KZDatasource *ds = [_kzResponse.application DataSourceWithName:@"testDataSource"];
+//    [ds Query:^(KZResponse *r) {
+//       [_helloKidoLabel setText:[NSString stringWithFormat:@"Response from DataSource:\n\n%@",r.response]];
+//    }];
     
 }
 
